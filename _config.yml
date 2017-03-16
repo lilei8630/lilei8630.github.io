@@ -1,49 +1,46 @@
-# Basic
-title: Lilei_Dan
-subtitle: 臭雷雷的天空
-welcome_message: <a href="https://github.com/onevcat/vno-jekyll" target="_blank">Download the theme</a>
-description: Vno Jekyll is a port of my Ghost theme vno.
-creator: <a href="http://onev.cat">@onevcat</a>
-
-url: "http://vno.onevcat.com"
-
-permalink: /:year/:month/:title/
-
-# Format
-highlighter: rouge
-
-# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: red
-
-# The blog button should not be removed.
-blog_button:
-    title: Blog
-    description: Visit blog
-
-# Navigation buttons in the front page.
-nav:
-    - {title: Projects, description: My Projects, url: 'http://project.onevcat.com'}
-    # - {title: Another Button, description: A button, url: 'http://example.com'}
-
-# Pagination
-gems: [jekyll-paginate]
+permalink: /:year/:month/:day/:title.html
 paginate: 10
-paginate_path: "page/:num/"
+markdown: kramdown
 
-# Comment
-comment:
-    disqus: 58ideas
-    # duoshuo: 
-    
-# Social
-social:
-    weibo: onevcat
-    github: onevcat
-    twitter: onevcat
-    gplus: 107108267983477358170
-    mail: onev@onevcat.com
+# 作者信息
+author: 
+  name: Lei Dan
+  email: lilei8630@gmail.com
+  link: http://58ideas.com
+  github: https://github.com/lilei8630
 
-# Google Analytics
+# 站点信息
+title: 雷丹的博客
+description: My personal blog
+url: http://58ideas.com
+rss_url: /pages/atom.xml
+
+# gavatar头像及Favicon
+gavatar: /public/img/deer3.png
+favicon: /public/img/deer3.png
+
+# google analytics 设置
 ga:
-    # id: your_ga_id
-    # host: your_host
+  id: UA-54262064-1 
+  url: 58ideas.com
+
+# disqus 设置
+disqus:
+  shortname: painterlin
+
+# 主题设置，自动激活某个标签
+active: 读书
+
+# 首页除了最新文章外显示分类
+cates: 
+  - Optimization
+  - LaTeX
+
+# 中文本地化
+locals:
+  tags: 标签
+  about: 关于
+  newest: 最新文章
+  archive: 归档
+
+gems: [jekyll-paginate]
