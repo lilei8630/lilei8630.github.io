@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: 软链接的使用技巧
 category: 效率
-tags: efficiency
+tags: Efficiency
 keywords: Mac 软链接
 description: 
 ---

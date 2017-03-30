@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: 二进制文件和文本文件的区别
 category: 技术
-tags: 常识
+tags: Tips
 keywords: 二进制文件,文本文件
 description: 
 ---

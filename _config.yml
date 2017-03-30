@@ -32,8 +32,8 @@ disqus:
 active: 技术
 # 首页除了最新文章外显示分类
 cates: 
-  - Optimization
-  - LaTeX
+  - Efficiency
+  - Tips
 #更改markdown引擎
 markdown: kramdown
 kramdown:
