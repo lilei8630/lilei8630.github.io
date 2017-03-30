@@ -30,11 +30,14 @@ disqus:
 
 # 主题设置，自动激活某个标签
 active: 技术
-
 # 首页除了最新文章外显示分类
 cates: 
   - Optimization
   - LaTeX
+# markdown 使用表格
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
 
 # 中文本地化
 locals:
@@ -43,4 +46,27 @@ locals:
   newest: 最新文章
   archive: 归档
 
-gems: [jekyll-paginate]
+gems: [jekyll-paginate,jekyll-pseudo]
+
+# jekyll-scholar
+scholar:
+    style: assets/bibliography/ieee.csl
+    locale: en
+    
+    sort_by: none
+    order: descending
+    bibliography_list_tag: ul
+    
+    source: _bibliography
+    repository: pdf
+    bibliography: references
+    bibliography_template: bibliography
+
+    replace_strings: true
+
+    details_dir:    bibliography
+    details_layout: bibtex.html
+    details_link:   Details
+
+    query: "@*"
+    
