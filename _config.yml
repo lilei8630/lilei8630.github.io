@@ -34,10 +34,11 @@ active: 技术
 cates: 
   - Optimization
   - LaTeX
-# markdown 使用表格
-markdown: redcarpet
-redcarpet:
-  extensions: ["tables"]
+#更改markdown引擎
+markdown: kramdown
+kramdown:
+   input: GFM
+   highlighter: rouge
 
 # 中文本地化
 locals:
