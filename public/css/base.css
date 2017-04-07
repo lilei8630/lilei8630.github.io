@@ -124,3 +124,12 @@ blockquote p {
   width: 100%;
   margin-bottom: 40px;
 }
+/*图像的标注*/
+.image-wrapper {
+    text-align: center;
+
+    .image-caption {
+        color: $grey-color;
+        margin-top: $spacing-unit / 3;
+    }
+}
