@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-<title>利用Letax写伪代码的Demo | 雷丹的博客</title>
+<title>git push中的-u参数是指什么？ | 雷丹的博客</title>
 <meta name="author" content="Lei Dan">
 
-  <meta name="keywords" content="Letax">
+  <meta name="keywords" content="git">
 
 
 <link rel="shortcut icon" href="/public/img/deer3.png" />
@@ -326,85 +326,13 @@
             <div class="row">
   <div class="col-md-13 aside3-title">
     <br>
-    <h2 id="#identifier">利用Letax写伪代码的Demo</h2>
-    2017年03月27日
+    <h2 id="#identifier">git push中的-u参数是指什么？</h2>
+    2017年04月10日
   </div>
   <div class="col-md-13 aside3-content">
     <hr>
     <div id="content">
-      <h2 id="模板">模板：</h2>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">\documentclass</span><span class="na">[11pt]</span><span class="p">{</span>article<span class="p">}</span>
-<span class="k">\usepackage</span><span class="p">{</span>fontspec<span class="p">}</span>
-<span class="k">\setromanfont</span><span class="p">{</span>STSong<span class="p">}</span> 
-<span class="k">\setmonofont</span><span class="p">{</span>Courier New<span class="p">}</span> 
-<span class="k">\XeTeXlinebreaklocale</span> "zh"
-<span class="k">\XeTeXlinebreakskip</span> = 0pt plus 1pt
-
-<span class="k">\usepackage</span><span class="p">{</span>CJK<span class="p">}</span>
-<span class="k">\usepackage</span><span class="na">[top=2cm, bottom=2cm, left=2cm, right=2cm]</span><span class="p">{</span>geometry<span class="p">}</span>
-<span class="k">\usepackage</span><span class="p">{</span>algorithm<span class="p">}</span>
-<span class="k">\usepackage</span><span class="p">{</span>algorithmicx<span class="p">}</span>
-<span class="k">\usepackage</span><span class="p">{</span>algpseudocode<span class="p">}</span>
-<span class="k">\usepackage</span><span class="p">{</span>amsmath<span class="p">}</span>
- 
-<span class="k">\floatname</span><span class="p">{</span>algorithm<span class="p">}{</span>算法<span class="p">}</span>
-<span class="k">\renewcommand</span><span class="p">{</span><span class="k">\algorithmicrequire</span><span class="p">}{</span><span class="k">\textbf</span><span class="p">{</span>输入:<span class="p">}}</span>
-<span class="k">\renewcommand</span><span class="p">{</span><span class="k">\algorithmicensure</span><span class="p">}{</span><span class="k">\textbf</span><span class="p">{</span>输出:<span class="p">}}</span>
-
-<span class="nt">\begin{document}</span>
-<span class="nt">\begin{CJK*}</span><span class="p">{</span>UTF8<span class="p">}{</span>gkai<span class="p">}</span>
-    <span class="nt">\begin{algorithm}</span>
-        <span class="k">\caption</span><span class="p">{</span>用归并排序求逆序数<span class="p">}</span>
-        <span class="nt">\begin{algorithmic}</span>[1] <span class="c">%每行显示行号</span>
-            <span class="k">\Require</span> <span class="p">$</span><span class="nb">Array</span><span class="p">$</span>数组，<span class="p">$</span><span class="nb">n</span><span class="p">$</span>数组大小
-            <span class="k">\Ensure</span> 逆序数
-            <span class="k">\Function</span> <span class="p">{</span>MergerSort<span class="p">}{$</span><span class="nb">Array, left, right</span><span class="p">$}</span>
-                <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> </span><span class="m">0</span><span class="p">$</span>
-                <span class="k">\If</span> <span class="p">{$</span><span class="nb">left &lt; right</span><span class="p">$}</span>
-                    <span class="k">\State</span> <span class="p">$</span><span class="nb">middle </span><span class="nv">\gets</span><span class="nb"> </span><span class="o">(</span><span class="nb">left </span><span class="o">+</span><span class="nb"> right</span><span class="o">)</span><span class="nb"> </span><span class="o">/</span><span class="nb"> </span><span class="m">2</span><span class="p">$</span>
-                    <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="p">$</span> <span class="k">\Call</span><span class="p">{</span>MergerSort<span class="p">}{$</span><span class="nb">Array, left, middle</span><span class="p">$}</span>
-                    <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="p">$</span> <span class="k">\Call</span><span class="p">{</span>MergerSort<span class="p">}{$</span><span class="nb">Array, middle, right</span><span class="p">$}</span>
-                    <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="p">$</span> <span class="k">\Call</span><span class="p">{</span>Merger<span class="p">}{$</span><span class="nb">Array,left,middle,right</span><span class="p">$}</span>
-                <span class="k">\EndIf</span>
-                <span class="k">\State</span> <span class="k">\Return</span><span class="p">{$</span><span class="nb">result</span><span class="p">$}</span>
-            <span class="k">\EndFunction</span>
-            <span class="k">\State</span>
-            <span class="k">\Function</span><span class="p">{</span>Merger<span class="p">}{$</span><span class="nb">Array, left, middle, right</span><span class="p">$}</span>
-                <span class="k">\State</span> <span class="p">$</span><span class="nb">i</span><span class="nv">\gets</span><span class="nb"> left</span><span class="p">$</span>
-                <span class="k">\State</span> <span class="p">$</span><span class="nb">j</span><span class="nv">\gets</span><span class="nb"> middle</span><span class="p">$</span>
-                <span class="k">\State</span> <span class="p">$</span><span class="nb">k</span><span class="nv">\gets</span><span class="nb"> </span><span class="m">0</span><span class="p">$</span>
-                <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> </span><span class="m">0</span><span class="p">$</span>
-                <span class="k">\While</span><span class="p">{$</span><span class="nb">i&lt;middle</span><span class="p">$</span> <span class="k">\textbf</span><span class="p">{</span>and<span class="p">}</span> <span class="p">$</span><span class="nb">j&lt;right</span><span class="p">$}</span>
-                    <span class="k">\If</span><span class="p">{$</span><span class="nb">Array</span><span class="o">[</span><span class="nb">i</span><span class="o">]</span><span class="nb">&lt;Array</span><span class="o">[</span><span class="nb">j</span><span class="o">]</span><span class="p">$}</span>
-                        <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">i</span><span class="o">++]</span><span class="p">$</span>
-                    <span class="k">\Else</span>
-                        <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">j</span><span class="o">++]</span><span class="p">$</span>
-                        <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="nb">middle </span><span class="o">-</span><span class="nb"> i</span><span class="o">)</span><span class="p">$</span>
-                    <span class="k">\EndIf</span>
-                <span class="k">\EndWhile</span>
-                <span class="k">\While</span><span class="p">{$</span><span class="nb">i&lt;middle</span><span class="p">$}</span>
-                    <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">i</span><span class="o">++]</span><span class="p">$</span>
-                <span class="k">\EndWhile</span>
-                <span class="k">\While</span><span class="p">{$</span><span class="nb">j&lt;right</span><span class="p">$}</span>
-                    <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">j</span><span class="o">++]</span><span class="p">$</span>
-                <span class="k">\EndWhile</span>
-                <span class="k">\For</span><span class="p">{$</span><span class="nb">i </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="nv">\to</span><span class="nb"> k</span><span class="o">-</span><span class="m">1</span><span class="p">$}</span>
-                    <span class="k">\State</span> <span class="p">$</span><span class="nb">Array</span><span class="o">[</span><span class="nb">left </span><span class="o">+</span><span class="nb"> i</span><span class="o">]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> B</span><span class="o">[</span><span class="nb">i</span><span class="o">]</span><span class="p">$</span>
-                <span class="k">\EndFor</span>
-                <span class="k">\State</span> <span class="k">\Return</span><span class="p">{$</span><span class="nb">result</span><span class="p">$}</span>
-            <span class="k">\EndFunction</span>
-        <span class="nt">\end{algorithmic}</span>
-    <span class="nt">\end{algorithm}</span>
-<span class="nt">\end{CJK*}</span>
-<span class="nt">\end{document}</span>
-
-</code></pre>
-</div>
-
-<h2 id="效果">效果</h2>
-
-<p><img src="/public/img/latex-pseudo.png" alt="归并排序伪代码" title="归并排序" /></p>
+      
 
     </div>
     <hr>
