@@ -2,8 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-<title>首页 | 雷丹的博客</title>
+<title>二进制文件和文本文件的区别 | 雷丹的博客</title>
 <meta name="author" content="Lei Dan">
+
+  <meta name="keywords" content="二进制文件,文本文件">
 
 
 <link rel="shortcut icon" href="/public/img/deer3.png" />
@@ -13,6 +15,24 @@
 <link rel="stylesheet" href="/public/js/prettify/prettify.css">
 <link rel="stylesheet" href="/public/css/base.css">
 <link href="/pages/atom.xml" rel="alternate" title="雷丹的博客" type="application/atom+xml">
+<!--表格中添加边框-->
+<style>
+  table{
+        border-collapse: collapse;
+              border-spacing: 0;
+                    border:2px solid #000000;
+                        }
+
+    th{
+          border:2px solid #000000;
+              }
+
+      td{
+            border:1px solid #000000;
+                }
+</style>
+
+
 </head>
 <body>
   <div class="container">
@@ -288,140 +308,95 @@
             <div class="row">
   <div class="col-md-13 aside3-title">
     <br>
-    <h2 id="#identifier"><i class="fa fa-home fa-lg"></i></h2>
+    <h2 id="#identifier">二进制文件和文本文件的区别</h2>
+    2017年03月31日
   </div>
   <div class="col-md-13 aside3-content">
-    <div id="page-content">
-      <!--<br>--> 
-<center><h3><font color="#000080">真</font><font color="#FFA500">的</font><font color="#2E8B57">勇</font><font color="#F08080">敢</font><font color="#00CED1">是</font><font color="red">经</font><font color="#BA55D3">的</font><font color="#601986">起</font><font color="#556fb5">平</font><font color="#fa1089">淡</font><font color="#638c0b">的</font><font color="#e00089">流</font><font color="#0a1089">年</font></h3></center>
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel panel-primary">
-      <div class="panel-heading">最新文章</div>
-      
-        <a  href='/2017/04/10/weibo_user_profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月10日</span>
-        </a>
-      
-        <a  href='/2017/04/07/weibo-user-profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月07日</span>
-        </a>
-      
-        <a  href='/2017/03/31/learn-jekyll-markdown.html' class="list-group-item pjaxlink clearfix">
-          用jekyll写博客时猜过的一些坑
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/third-part-js-intro.html' class="list-group-item pjaxlink clearfix">
-          第三方JavaScript-介绍
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/big-endian-little-endian.html' class="list-group-item pjaxlink clearfix">
-          Big Endian Little Endian
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-          二进制文件和文本文件的区别
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/28/introduction-paxos-raft.html' class="list-group-item pjaxlink clearfix">
-          paxos和raft是什么？
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/scholar.html' class="list-group-item pjaxlink clearfix">
-          A Blogging Scholar
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/hot-key-for-mac.html' class="list-group-item pjaxlink clearfix">
-          mac系统常用软件的快捷键
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/27/process-migration.html' class="list-group-item pjaxlink clearfix">
-          进程迁移技术研究
-          <span class="badge">2017年03月27日</span>
-        </a>
-      
-    </div>
-  </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Efficiency</div>
-         
-          
-            
-              <a  href='/2017/03/24/how-to-use-ln.html' class="list-group-item pjaxlink clearfix">
-                软链接的使用技巧
-                <span class="badge">2017年03月24日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Tips</div>
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-            
-              <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-                二进制文件和文本文件的区别
-                <span class="badge">2017年03月31日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
+    <hr>
+    <div id="content">
+      <h3 id="1-起因">1. 起因</h3>
+<p>今天在实验室谈论到bjson数据格式，从而引出是binary和textfile的区别，我第一感觉是binary文件省空间，但是又说不清为什么…</p>
+
+<h3 id="2实验">2.实验</h3>
+
+<p>首先定义结构体</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>struct Student
+{
+    int num;
+    char name[20];
+    float score;
+};
+</code></pre>
 </div>
- 
+
+<p>将stud写入到二进制文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>void write_to_binary_file(){
+    char test_file_name[100] = "test1.dat";
+    FILE *fo = fopen(test_file_name, "wb");
+    struct Student stdu;
+    stdu.num = 111;
+    strcpy(stdu.name,"lei");
+    stdu.score = 80.0f;
+    fwrite(&amp;stdu, sizeof(struct Student), 1, fo);
+    fclose(fo);
+}
+</code></pre>
+</div>
+
+<p>将stud写入到文本文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>void write_to_text_file(){
+    char test_file_name[100] = "test2.dat";
+    FILE *fo = fopen(test_file_name, "wb");
+    struct Student stdu;
+    stdu.num = 111;
+    strcpy(stdu.name,"lei");
+    stdu.score = 80.0f;
+    fprintf(fo, "%d%s%f",stdu.num,stdu.name,stdu.score);
+    fclose(fo);
+}
+</code></pre>
+</div>
+
+<h3 id="3-使用hexdump分析实验结果">3. 使用HEXDUMP分析实验结果</h3>
+<p>hexdump命令一般用来查看“二进制”文件的十六进制编码，但实际上它的用途不止如此，手册页上的说法是“ascii, decimal, hexadecimal, octal dump”，它能查看任何文件，而不只限于二进制文件。另外还有 xxd 和 od 也可以做类似的事情。在程序输出二进制格式的文件时，常用hexdump来检查输出是否正确。当然也可以使用Windows上的UltraEdit32之类的工具查看文件的十六进制编码，但Linux上有现成的工具，何不拿来用呢</p>
+
+<h4 id="31-常用参数">3.1 常用参数</h4>
+<blockquote>
+  <p>hexdump -C -n length -s skip file_name</p>
+</blockquote>
+
+<blockquote>
+  <p>-C 定义了导出的格式；-s skip 指定了从文件头跳过多少字节，或者说是偏移量，默认是十进制，如果是0x开头，则是十六进制；-n 指定了导出多少长度</p>
+</blockquote>
+
+<blockquote>
+  <p>如果要看到较理想的结果，推荐使用-C参数，显示结果分为三列（文件偏移量、字节的十六进制、ASCII字符）。</p>
+</blockquote>
+
+<h4 id="32-实验结果和结论">3.2 实验结果和结论</h4>
+
+<!-- _includes/image.html -->
+<div class="image-wrapper">
+    
+        <img src="http://localhost:4000//public/img/binary-text.png" alt="title for image" />
+    
+    
+        <p class="image-caption">二进制和文本文件结果</p>
+    
+</div>
+
+<p>二进制文件里面将111编码成6f，1个字节，这刚好是111的16进制表示，而文本文件中则写成31，31，31用了3个字节，表示111。6c   65   69  表示lei，之后2进制文件里是几个连续的00，而文本文件中是38   30……文本文件将浮点数80.000000用了38(表示8)   30(表示0)  2E(表示.)   30(表示0)   30(表示0)   30(表示0)   30(表示0)   30(表示0)   30(表示0)，二进制文件用了4个字节表示浮点数00   00   A0   42
+通过这里我们可以初见端倪了，二进制将数据在内存中的样子原封不动的搬到文件中，文本格式则是将每一个数据转换成字符写入到文件中，他们在大小上，布局上都有着区别。由此可以看出，2进制文件可以从读出来直接用，但是文本文件还多一个“翻译”的过程。</p>
+
+<h3 id="4-资料">4. 资料</h3>
+<p><a href="https://www.zhihu.com/question/19971994">文本文件和二进制文件的区别？请举例说明。</a></p>
+
+<p><a href="http://www.cnblogs.com/zhangjiankun/archive/2011/11/27/2265184.html">文本文件与二进制文件区别</a></p>
+
+<p><a href="http://www.cppblog.com/yg2362/archive/2012/07/12/182956.html">浅谈二进制文件读写和文本文件读写的区别</a></p>
 
     </div>
     <hr>
@@ -432,7 +407,44 @@
 </div>
 
   </div>
+  <!-- 目录 -->
+  <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
+    <div class="panel panel-success">
+      <div class="panel-body" id="nav"></div>
+    </div>
+  </div>
 </div>
+// 数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+        tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+     });
+  
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+         for(i=0; i < all.length; i += 1) {
+             all[i].SourceElement().parentNode.className += ' has-jax';
+         }
+     });
+</script> 
+//mathjax 
+<script>
+  (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+// 开启数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+   TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
 
           </div>
         </div>

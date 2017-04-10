@@ -2,8 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-<title>首页 | 雷丹的博客</title>
+<title>https深入分析 | 雷丹的博客</title>
 <meta name="author" content="Lei Dan">
+
+  <meta name="keywords" content="https">
 
 
 <link rel="shortcut icon" href="/public/img/deer3.png" />
@@ -13,6 +15,24 @@
 <link rel="stylesheet" href="/public/js/prettify/prettify.css">
 <link rel="stylesheet" href="/public/css/base.css">
 <link href="/pages/atom.xml" rel="alternate" title="雷丹的博客" type="application/atom+xml">
+<!--表格中添加边框-->
+<style>
+  table{
+        border-collapse: collapse;
+              border-spacing: 0;
+                    border:2px solid #000000;
+                        }
+
+    th{
+          border:2px solid #000000;
+              }
+
+      td{
+            border:1px solid #000000;
+                }
+</style>
+
+
 </head>
 <body>
   <div class="container">
@@ -288,140 +308,100 @@
             <div class="row">
   <div class="col-md-13 aside3-title">
     <br>
-    <h2 id="#identifier"><i class="fa fa-home fa-lg"></i></h2>
+    <h2 id="#identifier">https深入分析</h2>
+    2017年03月26日
   </div>
   <div class="col-md-13 aside3-content">
-    <div id="page-content">
-      <!--<br>--> 
-<center><h3><font color="#000080">真</font><font color="#FFA500">的</font><font color="#2E8B57">勇</font><font color="#F08080">敢</font><font color="#00CED1">是</font><font color="red">经</font><font color="#BA55D3">的</font><font color="#601986">起</font><font color="#556fb5">平</font><font color="#fa1089">淡</font><font color="#638c0b">的</font><font color="#e00089">流</font><font color="#0a1089">年</font></h3></center>
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel panel-primary">
-      <div class="panel-heading">最新文章</div>
-      
-        <a  href='/2017/04/10/weibo_user_profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月10日</span>
-        </a>
-      
-        <a  href='/2017/04/07/weibo-user-profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月07日</span>
-        </a>
-      
-        <a  href='/2017/03/31/learn-jekyll-markdown.html' class="list-group-item pjaxlink clearfix">
-          用jekyll写博客时猜过的一些坑
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/third-part-js-intro.html' class="list-group-item pjaxlink clearfix">
-          第三方JavaScript-介绍
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/big-endian-little-endian.html' class="list-group-item pjaxlink clearfix">
-          Big Endian Little Endian
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-          二进制文件和文本文件的区别
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/28/introduction-paxos-raft.html' class="list-group-item pjaxlink clearfix">
-          paxos和raft是什么？
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/scholar.html' class="list-group-item pjaxlink clearfix">
-          A Blogging Scholar
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/hot-key-for-mac.html' class="list-group-item pjaxlink clearfix">
-          mac系统常用软件的快捷键
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/27/process-migration.html' class="list-group-item pjaxlink clearfix">
-          进程迁移技术研究
-          <span class="badge">2017年03月27日</span>
-        </a>
-      
-    </div>
-  </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Efficiency</div>
-         
-          
-            
-              <a  href='/2017/03/24/how-to-use-ln.html' class="list-group-item pjaxlink clearfix">
-                软链接的使用技巧
-                <span class="badge">2017年03月24日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Tips</div>
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-            
-              <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-                二进制文件和文本文件的区别
-                <span class="badge">2017年03月31日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
+    <hr>
+    <div id="content">
+      <h2 id="8-对称加密和非对称加密">8. 对称加密和非对称加密</h2>
+<blockquote>
+  <p>对称密钥加密（英语：Symmetric-key algorithm）又称为对称加密、私钥加密、共享密钥加密，是密码学中的一类加密算法。这类算法在加密和解密时使用相同的密钥，或是使用两个可以简单地相互推算的密钥。实务上，这组密钥成为在两个或多个成员间的共同秘密，以便维持专属的通讯联系。与公开密钥加密相比，要求双方取得相同的密钥是对称密钥加密的主要缺点之一，常见的对称加密算法有DES、3DES、AES、Blowfish、IDEA、RC5、RC6。</p>
+</blockquote>
+
+<p>举例：
+首先，让我们先从一个情景开始讲起，想当初我们在初中，高中，甚至于大学，每次考试都有人在试图如何更加隐蔽的作弊！那大家都想了什么方法呢？比如张三学习比李四好，李四就想在考试的时候让张三“帮助”一下自己，当然，他们俩不可能像我们平常对话一样说，第一题选A，第二题选B等等，为什么？因为监考老师明白他俩在谈论什么，也就是说这种沟通交流方式属于“明文”，所以李四就想：“我需要发明一种，只有我和张三明白的交流方式”，那李四做了什么呢？恩，李四去找张三说：“当我连续咳嗽三声的时候你看我，然后如果我摸了下左耳朵，说明你可以开始给我传答案了，如果没反应，那说明我真的是在咳嗽。。。。”， 然后，怎么传答案呢？很简单，“你摸左耳朵代表A, 摸右耳朵代表B，左手放下代表C，右手放下代表D”，好了，这就是他们的“算法(规则)”，将信息的一种形式(A,B,C,D)，这里我们称为“明文”，转换成了另一种形式(摸左耳朵，摸右耳朵，放左手，放右手)，这里称为“密文”，经过这种转换，很显然监考老师不会明白这些“密文”，这样，张三和李四就通过“密文”的形式实现了信息的交换。</p>
+
+<blockquote>
+  <p>公开密钥加密（英语：public-key cryptography，又译为公开密钥加密），也称为非对称加密（asymmetric cryptography），一种密码学算法类型，在这种密码学方法中，需要一对密钥(其实这里密钥说法不好，就是“钥”)，一个是私人密钥，另一个则是公开密钥。这两个密钥是数学相关，用某用户密钥加密后所得的信息，只能用该用户的解密密钥才能解密。如果知道了其中一个，并不能计算出另外一个。因此如果公开了一对密钥中的一个，并不会危害到另外一个的秘密性质。称公开的密钥为公钥；不公开的密钥为私钥。这种加密算法应用非常广泛，SSH, HTTPS, TLS，电子证书，电子签名，电子身份证等等</p>
+</blockquote>
+
+<p>举例：
+比如说张三生成了他自己的一个“私钥-公钥”对，叫做“张三私钥-张三公钥”，李四生成了他自己的一个“私钥-公钥”对，叫做“李四私钥-李四公钥”，之前我们说过私钥要每个个体自己进行保存，公钥可以随便分享，目的是为什么呢？是为了加密信息！
+比如，李四想给张三发送密文。于是李四开始给张三发QQ</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>李四：
+“hi哥们，我想给你发个密文，把你的公钥给我发过来用用。”
+
+张三：
+“没问题的，这是我的公钥： d#8yHE8eU#hb*!neb，用这个公钥加密你的信息后给我发过来吧”
+
+李四：
+“这是我想对你说的话： *&amp;#@uehuu(**#eehu&amp;$##bfeu&amp;&amp;”
+</code></pre>
 </div>
- 
+<p>不过，这种非对称加密算法还不安全，如果黑客冒充了张三，发送给李四“黑客的公钥”，而不是“张三的公钥”，那么当李四收到该公钥的时候，就不假思索的使用该公钥加密了他的信息，然后毫不犹豫的将加密的密文发了过去，然后黑客得意的笑了。所以，问题在哪呢？这就是数字签名和数字证书的来历。</p>
+
+<h2 id="9数字签名和数字证书">9.数字签名和数字证书</h2>
+
+<p>首先明确几个基本概念：</p>
+
+<ol>
+  <li>
+    <p>密钥对，在非对称加密技术中，有两种密钥，分为私钥和公钥，私钥是密钥对所有者持有，不可公布，公钥是密钥对持有者公布给他人的。</p>
+  </li>
+  <li>
+    <p>公钥，公钥用来给数据加密，用公钥加密的数据只能使用私钥解密。</p>
+  </li>
+  <li>
+    <p>私钥，如上，用来解密公钥加密的数据。</p>
+  </li>
+  <li>
+    <p>摘要，对需要传输的文本，做一个HASH计算，一般采用SHA1，SHA2来获得。</p>
+  </li>
+  <li>
+    <p>签名，使用私钥对需要传输的文本的摘要进行加密，得到的密文即被称为该次传输过程的签名。</p>
+  </li>
+  <li>
+    <p>签名验证，数据接收端，拿到传输文本，但是需要确认该文本是否就是发送发出的内容，中途是否曾经被篡改。因此拿自己持有的公钥对签名进行解密（密钥对中的一种密钥加密的数据必定能使用另一种密钥解密。），得到了文本的摘要，然后使用与发送方同样的HASH算法计算摘要值，再与解密得到的摘要做对比，发现二者完全一致，则说明文本没有被篡改过。</p>
+  </li>
+</ol>
+
+<p>在签名的过程中，有一点很关键，收到数据的一方，需要自己保管好公钥，但是要知道每一个发送方都有一个公钥，那么接收数据的人需要保存非常多的公钥，这根本就管理不过来。并且本地保存的公钥有可能被篡改替换，无从发现。怎么解决这一问题了？由一个统一的证书管理机构来管理所有需要发送数据方的公钥，对公钥进行认证和加密。这个机构也就是我们常说的CA。认证加密后的公钥，即是证书，又称为CA证书，证书中包含了很多信息，最重要的是申请者的公钥。</p>
+
+<p>CA机构在给公钥加密时，用的是CA机构的一个统一的密钥对，在加密公钥时，用的是其中的私钥。这样，申请者拿到证书后，在发送数据时，用自己的私钥生成签名，将签名、证书和发送内容一起发给对方，对方拿到了证书后，需要对证书解密以获取到证书中的公钥，解密需要用到CA机构的”统一密钥对“中的公钥，这个公钥也就是我们常说的CA根证书，通常需要我们到证书颁发机构去下载并安装到相应的收取数据的客户端，如浏览器上面。这个公钥只需要安装一次。有了这个公钥之后，就可以解密证书，拿到发送方的公钥，然后解密发送方发过来的签名，获取摘要，重新计算摘要，作对比，以验证数据内容的完整性。</p>
+
+<h2 id="10-sha1-sha2-and-sha256-hash-algorithms">10. SHA1, SHA2 and SHA256 hash algorithms</h2>
+<p>SHA256由TBS Internet 于2008年发布，将在最近两年逐步替换SHA1.但是什么是SHA呢？</p>
+
+<p>SHA（secure hash algorithm）是CA中心用来生成数字证书和CRL(certificates revocation list)的hash算法，它首次被美国国家安全局（National Security Agency）
+于1993年提出，当时是SHA0，用来对文件生成唯一hash值。
+SHA1是现在常用的一种hash算法。SHA2是对SHA1的发展，它包括四种hash函数，SHA224, SHA256, SHA384 and SHA512.它和SHA1的工作方式相同，但是它更强大，可以生成更长的hash值。</p>
+
+<h2 id="11现在流行两种hash-attack">11.现在流行两种hash attack：</h2>
+
+<p><a href="https://zh.wikipedia.org/wiki/SHA-1">深入理解SHA</a></p>
+
+<ol>
+  <li>
+    <p>hash collision：当两个不同文件生成同一个hash值时，说明有冲突，</p>
+  </li>
+  <li>
+    <p>the preimage：</p>
+  </li>
+</ol>
+
+<h2 id="12-crl是什么">12. CRL是什么</h2>
+
+<h2 id="13-参考文献">13. 参考文献</h2>
+<p><a href="https://www.zhihu.com/question/19577317">http 和 https 有何区别？如何灵活使用？</a></p>
+
+<p><a href="https://segmentfault.com/a/1190000004461428">白话解释 对称加密算法 VS 非对称加密算法</a></p>
+
+<p><a href="http://codefine.co/1455.html">公钥私钥加密解密数字证书数字签名详解</a></p>
+
+<p><a href="https://www.tbs-certificates.co.uk/FAQ/en/sha256.html">All about SHA1, SHA2 and SHA256 hash algorithms</a></p>
+
 
     </div>
     <hr>
@@ -432,7 +412,44 @@
 </div>
 
   </div>
+  <!-- 目录 -->
+  <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
+    <div class="panel panel-success">
+      <div class="panel-body" id="nav"></div>
+    </div>
+  </div>
 </div>
+// 数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+        tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+     });
+  
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+         for(i=0; i < all.length; i += 1) {
+             all[i].SourceElement().parentNode.className += ' has-jax';
+         }
+     });
+</script> 
+//mathjax 
+<script>
+  (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+// 开启数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+   TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
 
           </div>
         </div>

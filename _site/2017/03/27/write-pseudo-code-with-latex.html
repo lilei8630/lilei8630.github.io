@@ -2,8 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-<title>首页 | 雷丹的博客</title>
+<title>利用Letax写伪代码的Demo | 雷丹的博客</title>
 <meta name="author" content="Lei Dan">
+
+  <meta name="keywords" content="Letax">
 
 
 <link rel="shortcut icon" href="/public/img/deer3.png" />
@@ -13,6 +15,24 @@
 <link rel="stylesheet" href="/public/js/prettify/prettify.css">
 <link rel="stylesheet" href="/public/css/base.css">
 <link href="/pages/atom.xml" rel="alternate" title="雷丹的博客" type="application/atom+xml">
+<!--表格中添加边框-->
+<style>
+  table{
+        border-collapse: collapse;
+              border-spacing: 0;
+                    border:2px solid #000000;
+                        }
+
+    th{
+          border:2px solid #000000;
+              }
+
+      td{
+            border:1px solid #000000;
+                }
+</style>
+
+
 </head>
 <body>
   <div class="container">
@@ -288,140 +308,85 @@
             <div class="row">
   <div class="col-md-13 aside3-title">
     <br>
-    <h2 id="#identifier"><i class="fa fa-home fa-lg"></i></h2>
+    <h2 id="#identifier">利用Letax写伪代码的Demo</h2>
+    2017年03月27日
   </div>
   <div class="col-md-13 aside3-content">
-    <div id="page-content">
-      <!--<br>--> 
-<center><h3><font color="#000080">真</font><font color="#FFA500">的</font><font color="#2E8B57">勇</font><font color="#F08080">敢</font><font color="#00CED1">是</font><font color="red">经</font><font color="#BA55D3">的</font><font color="#601986">起</font><font color="#556fb5">平</font><font color="#fa1089">淡</font><font color="#638c0b">的</font><font color="#e00089">流</font><font color="#0a1089">年</font></h3></center>
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel panel-primary">
-      <div class="panel-heading">最新文章</div>
-      
-        <a  href='/2017/04/10/weibo_user_profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月10日</span>
-        </a>
-      
-        <a  href='/2017/04/07/weibo-user-profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月07日</span>
-        </a>
-      
-        <a  href='/2017/03/31/learn-jekyll-markdown.html' class="list-group-item pjaxlink clearfix">
-          用jekyll写博客时猜过的一些坑
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/third-part-js-intro.html' class="list-group-item pjaxlink clearfix">
-          第三方JavaScript-介绍
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/big-endian-little-endian.html' class="list-group-item pjaxlink clearfix">
-          Big Endian Little Endian
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-          二进制文件和文本文件的区别
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/28/introduction-paxos-raft.html' class="list-group-item pjaxlink clearfix">
-          paxos和raft是什么？
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/scholar.html' class="list-group-item pjaxlink clearfix">
-          A Blogging Scholar
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/hot-key-for-mac.html' class="list-group-item pjaxlink clearfix">
-          mac系统常用软件的快捷键
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/27/process-migration.html' class="list-group-item pjaxlink clearfix">
-          进程迁移技术研究
-          <span class="badge">2017年03月27日</span>
-        </a>
-      
-    </div>
-  </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Efficiency</div>
-         
-          
-            
-              <a  href='/2017/03/24/how-to-use-ln.html' class="list-group-item pjaxlink clearfix">
-                软链接的使用技巧
-                <span class="badge">2017年03月24日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Tips</div>
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-            
-              <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-                二进制文件和文本文件的区别
-                <span class="badge">2017年03月31日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
-</div>
+    <hr>
+    <div id="content">
+      <h2 id="模板">模板：</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">\documentclass</span><span class="na">[11pt]</span><span class="p">{</span>article<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>fontspec<span class="p">}</span>
+<span class="k">\setromanfont</span><span class="p">{</span>STSong<span class="p">}</span> 
+<span class="k">\setmonofont</span><span class="p">{</span>Courier New<span class="p">}</span> 
+<span class="k">\XeTeXlinebreaklocale</span> "zh"
+<span class="k">\XeTeXlinebreakskip</span> = 0pt plus 1pt
+
+<span class="k">\usepackage</span><span class="p">{</span>CJK<span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[top=2cm, bottom=2cm, left=2cm, right=2cm]</span><span class="p">{</span>geometry<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>algorithm<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>algorithmicx<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>algpseudocode<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>amsmath<span class="p">}</span>
  
+<span class="k">\floatname</span><span class="p">{</span>algorithm<span class="p">}{</span>算法<span class="p">}</span>
+<span class="k">\renewcommand</span><span class="p">{</span><span class="k">\algorithmicrequire</span><span class="p">}{</span><span class="k">\textbf</span><span class="p">{</span>输入:<span class="p">}}</span>
+<span class="k">\renewcommand</span><span class="p">{</span><span class="k">\algorithmicensure</span><span class="p">}{</span><span class="k">\textbf</span><span class="p">{</span>输出:<span class="p">}}</span>
+
+<span class="nt">\begin{document}</span>
+<span class="nt">\begin{CJK*}</span><span class="p">{</span>UTF8<span class="p">}{</span>gkai<span class="p">}</span>
+    <span class="nt">\begin{algorithm}</span>
+        <span class="k">\caption</span><span class="p">{</span>用归并排序求逆序数<span class="p">}</span>
+        <span class="nt">\begin{algorithmic}</span>[1] <span class="c">%每行显示行号</span>
+            <span class="k">\Require</span> <span class="p">$</span><span class="nb">Array</span><span class="p">$</span>数组，<span class="p">$</span><span class="nb">n</span><span class="p">$</span>数组大小
+            <span class="k">\Ensure</span> 逆序数
+            <span class="k">\Function</span> <span class="p">{</span>MergerSort<span class="p">}{$</span><span class="nb">Array, left, right</span><span class="p">$}</span>
+                <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> </span><span class="m">0</span><span class="p">$</span>
+                <span class="k">\If</span> <span class="p">{$</span><span class="nb">left &lt; right</span><span class="p">$}</span>
+                    <span class="k">\State</span> <span class="p">$</span><span class="nb">middle </span><span class="nv">\gets</span><span class="nb"> </span><span class="o">(</span><span class="nb">left </span><span class="o">+</span><span class="nb"> right</span><span class="o">)</span><span class="nb"> </span><span class="o">/</span><span class="nb"> </span><span class="m">2</span><span class="p">$</span>
+                    <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="p">$</span> <span class="k">\Call</span><span class="p">{</span>MergerSort<span class="p">}{$</span><span class="nb">Array, left, middle</span><span class="p">$}</span>
+                    <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="p">$</span> <span class="k">\Call</span><span class="p">{</span>MergerSort<span class="p">}{$</span><span class="nb">Array, middle, right</span><span class="p">$}</span>
+                    <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="p">$</span> <span class="k">\Call</span><span class="p">{</span>Merger<span class="p">}{$</span><span class="nb">Array,left,middle,right</span><span class="p">$}</span>
+                <span class="k">\EndIf</span>
+                <span class="k">\State</span> <span class="k">\Return</span><span class="p">{$</span><span class="nb">result</span><span class="p">$}</span>
+            <span class="k">\EndFunction</span>
+            <span class="k">\State</span>
+            <span class="k">\Function</span><span class="p">{</span>Merger<span class="p">}{$</span><span class="nb">Array, left, middle, right</span><span class="p">$}</span>
+                <span class="k">\State</span> <span class="p">$</span><span class="nb">i</span><span class="nv">\gets</span><span class="nb"> left</span><span class="p">$</span>
+                <span class="k">\State</span> <span class="p">$</span><span class="nb">j</span><span class="nv">\gets</span><span class="nb"> middle</span><span class="p">$</span>
+                <span class="k">\State</span> <span class="p">$</span><span class="nb">k</span><span class="nv">\gets</span><span class="nb"> </span><span class="m">0</span><span class="p">$</span>
+                <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> </span><span class="m">0</span><span class="p">$</span>
+                <span class="k">\While</span><span class="p">{$</span><span class="nb">i&lt;middle</span><span class="p">$</span> <span class="k">\textbf</span><span class="p">{</span>and<span class="p">}</span> <span class="p">$</span><span class="nb">j&lt;right</span><span class="p">$}</span>
+                    <span class="k">\If</span><span class="p">{$</span><span class="nb">Array</span><span class="o">[</span><span class="nb">i</span><span class="o">]</span><span class="nb">&lt;Array</span><span class="o">[</span><span class="nb">j</span><span class="o">]</span><span class="p">$}</span>
+                        <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">i</span><span class="o">++]</span><span class="p">$</span>
+                    <span class="k">\Else</span>
+                        <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">j</span><span class="o">++]</span><span class="p">$</span>
+                        <span class="k">\State</span> <span class="p">$</span><span class="nb">result </span><span class="nv">\gets</span><span class="nb"> result </span><span class="o">+</span><span class="nb"> </span><span class="o">(</span><span class="nb">middle </span><span class="o">-</span><span class="nb"> i</span><span class="o">)</span><span class="p">$</span>
+                    <span class="k">\EndIf</span>
+                <span class="k">\EndWhile</span>
+                <span class="k">\While</span><span class="p">{$</span><span class="nb">i&lt;middle</span><span class="p">$}</span>
+                    <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">i</span><span class="o">++]</span><span class="p">$</span>
+                <span class="k">\EndWhile</span>
+                <span class="k">\While</span><span class="p">{$</span><span class="nb">j&lt;right</span><span class="p">$}</span>
+                    <span class="k">\State</span> <span class="p">$</span><span class="nb">B</span><span class="o">[</span><span class="nb">k</span><span class="o">++]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> Array</span><span class="o">[</span><span class="nb">j</span><span class="o">++]</span><span class="p">$</span>
+                <span class="k">\EndWhile</span>
+                <span class="k">\For</span><span class="p">{$</span><span class="nb">i </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="nv">\to</span><span class="nb"> k</span><span class="o">-</span><span class="m">1</span><span class="p">$}</span>
+                    <span class="k">\State</span> <span class="p">$</span><span class="nb">Array</span><span class="o">[</span><span class="nb">left </span><span class="o">+</span><span class="nb"> i</span><span class="o">]</span><span class="nb"> </span><span class="nv">\gets</span><span class="nb"> B</span><span class="o">[</span><span class="nb">i</span><span class="o">]</span><span class="p">$</span>
+                <span class="k">\EndFor</span>
+                <span class="k">\State</span> <span class="k">\Return</span><span class="p">{$</span><span class="nb">result</span><span class="p">$}</span>
+            <span class="k">\EndFunction</span>
+        <span class="nt">\end{algorithmic}</span>
+    <span class="nt">\end{algorithm}</span>
+<span class="nt">\end{CJK*}</span>
+<span class="nt">\end{document}</span>
+
+</code></pre>
+</div>
+
+<h2 id="效果">效果</h2>
+
+<p><img src="/public/img/latex-pseudo.png" alt="归并排序伪代码" title="归并排序" /></p>
 
     </div>
     <hr>
@@ -432,7 +397,44 @@
 </div>
 
   </div>
+  <!-- 目录 -->
+  <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
+    <div class="panel panel-success">
+      <div class="panel-body" id="nav"></div>
+    </div>
+  </div>
 </div>
+// 数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+        tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+     });
+  
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+         for(i=0; i < all.length; i += 1) {
+             all[i].SourceElement().parentNode.className += ' has-jax';
+         }
+     });
+</script> 
+//mathjax 
+<script>
+  (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+// 开启数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+   TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
 
           </div>
         </div>

@@ -2,8 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-<title>首页 | 雷丹的博客</title>
+<title>软链接的使用技巧 | 雷丹的博客</title>
 <meta name="author" content="Lei Dan">
+
+  <meta name="keywords" content="Mac 软链接">
 
 
 <link rel="shortcut icon" href="/public/img/deer3.png" />
@@ -13,6 +15,24 @@
 <link rel="stylesheet" href="/public/js/prettify/prettify.css">
 <link rel="stylesheet" href="/public/css/base.css">
 <link href="/pages/atom.xml" rel="alternate" title="雷丹的博客" type="application/atom+xml">
+<!--表格中添加边框-->
+<style>
+  table{
+        border-collapse: collapse;
+              border-spacing: 0;
+                    border:2px solid #000000;
+                        }
+
+    th{
+          border:2px solid #000000;
+              }
+
+      td{
+            border:1px solid #000000;
+                }
+</style>
+
+
 </head>
 <body>
   <div class="container">
@@ -288,140 +308,41 @@
             <div class="row">
   <div class="col-md-13 aside3-title">
     <br>
-    <h2 id="#identifier"><i class="fa fa-home fa-lg"></i></h2>
+    <h2 id="#identifier">软链接的使用技巧</h2>
+    2017年03月24日
   </div>
   <div class="col-md-13 aside3-content">
-    <div id="page-content">
-      <!--<br>--> 
-<center><h3><font color="#000080">真</font><font color="#FFA500">的</font><font color="#2E8B57">勇</font><font color="#F08080">敢</font><font color="#00CED1">是</font><font color="red">经</font><font color="#BA55D3">的</font><font color="#601986">起</font><font color="#556fb5">平</font><font color="#fa1089">淡</font><font color="#638c0b">的</font><font color="#e00089">流</font><font color="#0a1089">年</font></h3></center>
-<div class="row">
-  <div class="col-md-12">
-    <div class="panel panel-primary">
-      <div class="panel-heading">最新文章</div>
-      
-        <a  href='/2017/04/10/weibo_user_profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月10日</span>
-        </a>
-      
-        <a  href='/2017/04/07/weibo-user-profile.html' class="list-group-item pjaxlink clearfix">
-          大规模社交用户的标签自动生成技术研究
-          <span class="badge">2017年04月07日</span>
-        </a>
-      
-        <a  href='/2017/03/31/learn-jekyll-markdown.html' class="list-group-item pjaxlink clearfix">
-          用jekyll写博客时猜过的一些坑
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/third-part-js-intro.html' class="list-group-item pjaxlink clearfix">
-          第三方JavaScript-介绍
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/big-endian-little-endian.html' class="list-group-item pjaxlink clearfix">
-          Big Endian Little Endian
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-          二进制文件和文本文件的区别
-          <span class="badge">2017年03月31日</span>
-        </a>
-      
-        <a  href='/2017/03/28/introduction-paxos-raft.html' class="list-group-item pjaxlink clearfix">
-          paxos和raft是什么？
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/scholar.html' class="list-group-item pjaxlink clearfix">
-          A Blogging Scholar
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/28/hot-key-for-mac.html' class="list-group-item pjaxlink clearfix">
-          mac系统常用软件的快捷键
-          <span class="badge">2017年03月28日</span>
-        </a>
-      
-        <a  href='/2017/03/27/process-migration.html' class="list-group-item pjaxlink clearfix">
-          进程迁移技术研究
-          <span class="badge">2017年03月27日</span>
-        </a>
-      
-    </div>
-  </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Efficiency</div>
-         
-          
-            
-              <a  href='/2017/03/24/how-to-use-ln.html' class="list-group-item pjaxlink clearfix">
-                软链接的使用技巧
-                <span class="badge">2017年03月24日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
-    <div class="col-md-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Tips</div>
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-         
-          
-            
-              <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink clearfix">
-                二进制文件和文本文件的区别
-                <span class="badge">2017年03月31日</span>
-              </a>
-            
-          
-         
-          
-         
-          
-        
-      </div>
-    </div>
-  
-</div>
- 
+    <hr>
+    <div id="content">
+      <h2 id="链接是什么">链接是什么</h2>
+<p>ln是一个非常常用的Linux命令，它可以用来为一个文件或目录在其他目录里创建一个同步的链接，它的链接分为硬链接与软链接两种，硬链接类似于拷贝，而软链接则类似于一个指向源目标文件或目录的一个指针，就像Windows中的快捷方式一样。</p>
+
+<h2 id="什么时候需要用软链接">什么时候需要用软链接</h2>
+<ul>
+  <li>之前我的Mac笔记本一个分区的硬盘快用尽了，于是将快用尽的硬盘链接到一个空的硬盘上解决了这个问题。</li>
+  <li>最近在用jekyll写博客，由于我们屏幕截图的文件会保存在桌面，可以博客的图片资源在其他文件夹下，为
+了解决这个问题，我打算在桌面做一个软链接文件指向博客的图片资源</li>
+</ul>
+
+<h2 id="具体用法">具体用法</h2>
+<p>具体用法：<strong>ln –s 源文件 目标文件</strong>
+举例：</p>
+
+<ol>
+  <li>对某个文件建立一个硬链接，比如: <strong>ln Number.txt t3</strong> 这种相当于是将Number.txt拷贝为了一份t3，通过ll命令可以发现两个文件都是一样的。</li>
+  <li>对某个文件建立一个软链接，比如: <strong>ln -s Number.txt t4</strong> t4就相当于是Number.txt的一个快捷方式。</li>
+  <li>对目录创建一个软链接，比如: <strong>ln -s /Users/extends_die/code/blog/public/img/ /Users/extends_die/Desktop/BLOG</strong> ,这个相当于
+为img文件夹在桌面创建了一个快捷方式。</li>
+</ol>
+
+<h3 id="注意">注意</h3>
+<ol>
+  <li>ln命令会保持每一处链接文件的同步性，也就是说，不论你改动了哪一处，其它的文件都会发生相同的变化；</li>
+  <li>ln的链接又分软链接和硬链接两种，软链接就是 <strong>ln –s ** **</strong> ，它只会在你选定的位置上生成一个文件的镜像，不会占用磁盘空间，硬链接 <strong>ln ** **</strong> ，没有参数-s， 它会在你选定的位置上生成一个和源文件大小相同的文件，无论是软链接还是硬链接，文件都保持同步变化。</li>
+  <li>用ln命令创建连接文件或目录的时候，路径一定要用全路径。 否则会出现“不能完成此操作，因为找不到XXX的原始项目”</li>
+  <li>链接的删除也很简单，直接用rm 链接名 删除即可，删除链接不会删除链接对应的源文件或目录。</li>
+</ol>
+
 
     </div>
     <hr>
@@ -432,7 +353,44 @@
 </div>
 
   </div>
+  <!-- 目录 -->
+  <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
+    <div class="panel panel-success">
+      <div class="panel-body" id="nav"></div>
+    </div>
+  </div>
 </div>
+// 数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+        tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+     });
+  
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+         for(i=0; i < all.length; i += 1) {
+             all[i].SourceElement().parentNode.className += ' has-jax';
+         }
+     });
+</script> 
+//mathjax 
+<script>
+  (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+// 开启数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+   TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
 
           </div>
         </div>

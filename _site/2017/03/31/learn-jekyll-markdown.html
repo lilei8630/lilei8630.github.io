@@ -1,0 +1,829 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>用jekyll写博客时猜过的一些坑 | 雷丹的博客</title>
+<meta name="author" content="Lei Dan">
+
+  <meta name="keywords" content="Jekyll markdown">
+
+
+<link rel="shortcut icon" href="/public/img/deer3.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/public/css/bootstrap.css">
+<link rel="stylesheet" href="/public/css/font-awesome.css">
+<link rel="stylesheet" href="/public/js/prettify/prettify.css">
+<link rel="stylesheet" href="/public/css/base.css">
+<link href="/pages/atom.xml" rel="alternate" title="雷丹的博客" type="application/atom+xml">
+<!--表格中添加边框-->
+<style>
+  table{
+        border-collapse: collapse;
+              border-spacing: 0;
+                    border:2px solid #000000;
+                        }
+
+    th{
+          border:2px solid #000000;
+              }
+
+      td{
+            border:1px solid #000000;
+                }
+</style>
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 col-sm-13 col-xs-13 aside visible-md visible-lg">
+  <div class="row">
+    <div class="col-md-2 col-xs-2 aside1">
+      <br>
+      <a class="pjaxlink" href="/"><img src="/public/img/deer3.png" class="img-ronuded avatar" style="border-width:0px; border-color:#000"></a>
+      <br><br><br><br>
+      <ul class="nav nav-pills nav-stacked">
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#效率" data-toggle="tab">效率</a></li>
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#技术" data-toggle="tab">技术</a></li>
+             <!-- 这里是aside1的读书、生活、科研、技术、绘画-->
+         <li><a href="#读书" data-toggle="tab">读书</a></li>
+        
+        <li><a href="#tags" data-toggle="tab">标签</a></li>  
+        <li><a class="pjaxlink" href="/pages/archive.html">归档</a></li>
+        <li><a class="pjaxlink" href="/pages/about.html">关于</a></li>  
+        <!-- <li><a href="#tags" data-toggle="tab"><i class="fa fa-tags fa-lg"></i></a></li>
+        <li><a class="pjaxlink" href="/pages/archive.html"><i class="fa fa-archive fa-lg"></i></a></li>
+        <li><a class="pjaxlink" href="/pages/about.html"><i class="fa fa-user fa-lg"></i></a></li>
+        这是原来现实汉字的代码，我改为了图标 -->
+      </ul>
+      <div class="aside1_bottom">
+        <table class="table table-condensed">
+          <tr>
+            <td><a href="/pages/atom.xml" target="_blank"><i class="fa fa-rss fa-lg" style="color:#fff;"></i></a></td>
+            <td><a href="mailto:lilei8630@gmail.com"><i class="fa fa-envelope-o fa-lg" style="color:#fff;"></i></a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-10 col-xs-10 aside2">
+      <div class="row">
+        <div class="tab-content"> 
+           
+            <div class="tab-pane" id="效率">
+              <div class="list-group">
+                <!--<h2 class="center">效率</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/2017/03/28/scholar.html" class="list-group-item-lay pjaxlink">A Blogging Scholar</a>
+                
+                  <a href="/2017/03/28/hot-key-for-mac.html" class="list-group-item-lay pjaxlink">mac系统常用软件的快捷键</a>
+                
+                  <a href="/2017/03/27/write-pseudo-code-with-latex.html" class="list-group-item-lay pjaxlink">利用Letax写伪代码的Demo</a>
+                
+                  <a href="/2017/03/24/how-to-use-ln.html" class="list-group-item-lay pjaxlink">软链接的使用技巧</a>
+                
+              </div>
+            </div>
+           
+            <div class="tab-pane" id="技术">
+              <div class="list-group">
+                <!--<h2 class="center">技术</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/2017/04/10/weibo_user_profile.html" class="list-group-item-lay pjaxlink">大规模社交用户的标签自动生成技术研究</a>
+                
+                  <a href="/2017/04/07/weibo-user-profile.html" class="list-group-item-lay pjaxlink">大规模社交用户的标签自动生成技术研究</a>
+                
+                  <a href="/2017/03/31/learn-jekyll-markdown.html" class="list-group-item-lay pjaxlink">用jekyll写博客时猜过的一些坑</a>
+                
+                  <a href="/2017/03/31/difference-between-binary-textfile.html" class="list-group-item-lay pjaxlink">二进制文件和文本文件的区别</a>
+                
+                  <a href="/2017/03/28/introduction-paxos-raft.html" class="list-group-item-lay pjaxlink">paxos和raft是什么？</a>
+                
+                  <a href="/2017/03/27/process-migration.html" class="list-group-item-lay pjaxlink">进程迁移技术研究</a>
+                
+                  <a href="/2017/03/26/introduction-to-https.html" class="list-group-item-lay pjaxlink">https深入分析</a>
+                
+                  <a href="/2017/03/24/principle-behind-jekyll.html" class="list-group-item-lay pjaxlink">在Jekyll中集成Disqus的原理</a>
+                
+              </div>
+            </div>
+           
+            <div class="tab-pane" id="读书">
+              <div class="list-group">
+                <!--<h2 class="center">读书</h2>-->     <!--原来aside2上面的大标题-->
+                
+                  <a href="/2017/03/31/third-part-js-intro.html" class="list-group-item-lay pjaxlink">第三方JavaScript-介绍</a>
+                
+              </div>
+            </div>
+                
+          <div class="tab-pane" id="tags">
+            <div class="panel-group" id="accordion">
+              <!--<h2 class="center">标签</h2>-->
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Efficiency">Efficiency</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Efficiency" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/24/how-to-use-ln.html' class="list-group-item pjaxlink">
+                        软链接的使用技巧
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Jekyll">Jekyll</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="Jekyll" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/31/learn-jekyll-markdown.html' class="list-group-item pjaxlink">
+                        用jekyll写博客时猜过的一些坑
+                      </a>
+                    
+                      <a  href='/2017/03/24/principle-behind-jekyll.html' class="list-group-item pjaxlink">
+                        在Jekyll中集成Disqus的原理
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#安全">安全</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="安全" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/26/introduction-to-https.html' class="list-group-item pjaxlink">
+                        https深入分析
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Letax">Letax</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Letax" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/27/write-pseudo-code-with-latex.html' class="list-group-item pjaxlink">
+                        利用Letax写伪代码的Demo
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#linux内核">linux内核</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="linux内核" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/27/process-migration.html' class="list-group-item pjaxlink">
+                        进程迁移技术研究
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#mac">mac</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="mac" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/28/scholar.html' class="list-group-item pjaxlink">
+                        A Blogging Scholar
+                      </a>
+                    
+                      <a  href='/2017/03/28/hot-key-for-mac.html' class="list-group-item pjaxlink">
+                        mac系统常用软件的快捷键
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#paxos,raft">paxos,raft</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="paxos,raft" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/28/introduction-paxos-raft.html' class="list-group-item pjaxlink">
+                        paxos和raft是什么？
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Tips">Tips</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="Tips" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/31/difference-between-binary-textfile.html' class="list-group-item pjaxlink">
+                        二进制文件和文本文件的区别
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#JavaScript">JavaScript</a>
+                      <span class="badge pull-right">1</span>
+                    </h4>
+                  </div>
+                  <div id="JavaScript" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/03/31/third-part-js-intro.html' class="list-group-item pjaxlink">
+                        第三方JavaScript-介绍
+                      </a>
+                    
+                  </div>
+                </div>
+               
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#MachineLearning">MachineLearning</a>
+                      <span class="badge pull-right">2</span>
+                    </h4>
+                  </div>
+                  <div id="MachineLearning" class="panel-collapse collapse">
+                    
+                      <a  href='/2017/04/10/weibo_user_profile.html' class="list-group-item pjaxlink">
+                        大规模社交用户的标签自动生成技术研究
+                      </a>
+                    
+                      <a  href='/2017/04/07/weibo-user-profile.html' class="list-group-item pjaxlink">
+                        大规模社交用户的标签自动生成技术研究
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="col-md-13 col-lg-13 col-sm-13 col-xs-13 aside3">
+        <div id="container">
+          <div id="pjax">
+            <div class="row">
+  <div class="col-md-13 aside3-title">
+    <br>
+    <h2 id="#identifier">用jekyll写博客时猜过的一些坑</h2>
+    2017年03月31日
+  </div>
+  <div class="col-md-13 aside3-content">
+    <hr>
+    <div id="content">
+      <script type="math/tex; mode=display">\frac{x^2}{\sqrt{y+1}}</script>
+
+<h3 id="2015">2015</h3>
+
+<ul class="bibliography"></ul>
+
+<h3 id="2014">2014</h3>
+
+<ul class="bibliography"><li><span id="michlmayr2007learning">[1]E. Michlmayr and S. Cayzer, “Learning user profiles from tagging data and leveraging them for personal (ized) information access,” 2007.</span>
+
+
+
+</li>
+<li><span id="kipp2006patterns">[2]M. E. I. Kipp and D. G. Campbell, “Patterns and inconsistencies in collaborative tagging systems: An examination of tagging practices,” <i>Proceedings of the American Society for Information Science and Technology</i>, vol. 43, no. 1, pp. 1–18, 2006.</span>
+
+
+
+</li>
+<li><span id="基于社会化标签的协同过滤推荐策略研究">[3]万朔 and 邱会中, “基于社会化标签的协同过滤推荐策略研究,” <i>电子科技大学</i>, pp. 14–16, 2010.</span>
+
+
+
+</li>
+<li><span id="王萍2010一种社会性标签聚类算法">[4]王萍 and 张际平, “一种社会性标签聚类算法,” <i>计算机应用与软件</i>, vol. 27, no. 2, pp. 126–129, 2010.</span>
+
+
+
+</li>
+<li><span id="lacic2014recommending">[5]E. Lacic, D. Kowald, P. Seitlinger, C. Trattner, and D. Parra, “Recommending items in social tagging systems using tag and time information,” <i>arXiv preprint arXiv:1406.7727</i>, 2014.</span>
+
+
+
+</li>
+<li><span id="kumar2014exploiting">[6]H. Kumar, S. Lee, and H.-G. Kim, “Exploiting social bookmarking services to build clustered user interest profile for personalized search,” <i>Information Sciences</i>, vol. 281, pp. 399–417, 2014.</span>
+
+
+
+</li>
+<li><span id="chatti2013tag">[7]M. A. Chatti, S. Dakova, H. Thus, and U. Schroeder, “Tag-based collaborative filtering recommendation in personal learning environments,” <i>IEEE Transactions on Learning Technologies</i>, vol. 6, no. 4, pp. 337–349, 2013.</span>
+
+
+
+</li>
+<li><span id="涂存超:24">[8]涂存超 孙茂松, “社会媒体用户标签的分析与推荐,” <i>图书情报工作</i>, vol. 57, no. 23, p. 24, 2013.</span>
+
+
+
+</li>
+<li><span id="godoy2012one">[9]D. Godoy, “One-class support vector machines for personalized tag-based resource classification in social bookmarking systems,” <i>Concurrency and Computation: Practice and Experience</i>, vol. 24, no. 17, pp. 2193–2206, 2012.</span>
+
+
+
+</li>
+<li><span id="tenenbaum2000global">[10]J. B. Tenenbaum, V. De Silva, and J. C. Langford, “A global geometric framework for nonlinear dimensionality reduction,” <i>science</i>, vol. 290, no. 5500, pp. 2319–2323, 2000.</span>
+
+
+
+</li>
+<li><span id="clauset2005finding">[11]A. Clauset, “Finding local community structure in networks,” <i>Physical review E</i>, vol. 72, no. 2, p. 026132, 2005.</span>
+
+
+
+</li>
+<li><span id="bengio2003neural">[12]Y. Bengio, R. Ducharme, P. Vincent, and C. Jauvin, “A neural probabilistic language model,” <i>Journal of machine learning research</i>, vol. 3, no. Feb, pp. 1137–1155, 2003.</span>
+
+
+
+</li>
+<li><span id="rumelhart1988learning">[13]D. E. Rumelhart, G. E. Hinton, and R. J. Williams, “Learning representations by back-propagating errors,” <i>Cognitive modeling</i>, vol. 5, no. 3, p. 1, 1988.</span>
+
+
+
+</li></ul>
+
+<ul class="bibliography"><li><span id="lacic2014recommending">[1]E. Lacic, D. Kowald, P. Seitlinger, C. Trattner, and D. Parra, “Recommending items in social tagging systems using tag and time information,” <i>arXiv preprint arXiv:1406.7727</i>, 2014.</span>
+
+
+
+</li>
+<li><span id="kumar2014exploiting">[2]H. Kumar, S. Lee, and H.-G. Kim, “Exploiting social bookmarking services to build clustered user interest profile for personalized search,” <i>Information Sciences</i>, vol. 281, pp. 399–417, 2014.</span>
+
+
+
+</li></ul>
+
+<h2 id="如何利用_drafts">如何利用_drafts</h2>
+<hr />
+<p>在根目录下创建_drafts文件夹，然后可以在其中创建无时间命名的markdown文档，比如a-draft-article.md,
+如果想提前预览，可以输入</p>
+
+<blockquote>
+  <p>jekyll build –drafts</p>
+</blockquote>
+
+<p>jekyll会自动连草稿一起编译，草稿的日期为当前的日期。 写完草稿想发布了，把这个文件改成year-month-day-title.md格式放到_posts目录即可。
+最后commit&amp;push到GitHub上去即可看到博客内容拉。</p>
+
+<h2 id="the-liquid-language">the Liquid Language</h2>
+<hr />
+<p>Jekyll使用Liquid模板，因此，想要用好Jekyll，需要了解一些关于Liquid相关的知识.
+Liquid中存在两种类型的标签: Output and Tag 。其中Output会被解析成文本</p>
+
+<h2 id="2-rake">2. rake</h2>
+
+<h3 id="21-何为rake">2.1 何为Rake</h3>
+
+<p>即Ruby Make，一个用ruby开发的代码构建工具</p>
+
+<h3 id="22-常用命令">2.2 常用命令</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>rake post["Title"]   直接写博文
+rake draft["Title"]  写草稿
+rake publish         将草稿发表
+rake page["Title"]   做页面
+    rake page["Title","Path/to/folder"]
+rake build
+rake watch
+    rake watch[number]
+    rake watch["drafts"]
+rake preview
+rake deploy["Commit message"]  写完后发布
+rake transfer
+</code></pre>
+</div>
+<h2 id="如何配置seo">如何配置SEO</h2>
+<hr />
+
+<h2 id="如何配置analytics">如何配置Analytics</h2>
+
+<h2 id="jekyll里的watch参数是什么含义">jekyll里的watch参数是什么含义</h2>
+
+<p>jekyll 2.4版本后，<em>jekyll build</em> 和 <em>jekyll serve</em> 默认包含jekyll参数，这个参数将监控博客
+文件的改变，并重新自动生成博客。</p>
+
+<h2 id="博客中如何插入图片">博客中如何插入图片</h2>
+<h3 id="图片的存放">图片的存放</h3>
+<p>我将需要插入的图片都放置到/public/img下了</p>
+<h3 id="插入图片的命令">插入图片的命令</h3>
+<p>在sublime +Markdown Extended编辑模式下只需输入mdi + tab 然后回车(mdl + tab可以插入链接)</p>
+
+<p>利用markdown插入图片命令</p>
+
+<p><code class="highlighter-rouge">![图片](/public/img/horse.jpg "Optional title")</code></p>
+
+<p>插入图片不可以控制尺寸，有时图片太大用户体验不好。
+我们可以采用html的<code class="highlighter-rouge">&lt;img&gt;</code>标签插入图片</p>
+
+<p><code class="highlighter-rouge">&lt;img src="/public/img/horse.jpg" width="50%" height="50%"&gt;</code></p>
+
+<p><img src="/public/img/horse.jpg" width="50%" height="50%" /></p>
+
+<h2 id="atom--markdown-writer--git-plus书写博客的流程">Atom + Markdown Writer + Git plus书写博客的流程</h2>
+
+<h2 id="jekyll-serve-中的-detach参数">jekyll serve 中的 –detach参数</h2>
+<p>功能和<code class="highlighter-rouge">jekyll serve</code>命令相同，但是会脱离终端在后台运行。
+如果你想关闭服务器，可以使用<code class="highlighter-rouge">kill -9 1234</code>命令，”1234” 是进程号（PID）。
+如果你找不到进程号，那么就用<code class="highlighter-rouge">ps aux | grep jekyll</code>命令来查看，然后关闭服务器。</p>
+
+<h2 id="jekyll-语法高亮配置">jekyll 语法高亮配置</h2>
+
+<h2 id="网上看到的一个发布博客的脚本">网上看到的一个发布博客的脚本</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+do_commit<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">cmd</span><span class="o">=</span><span class="s2">"git commit -a -m</span><span class="se">\"</span><span class="nv">$log</span><span class="se">\"</span><span class="s2">"</span>
+    <span class="nb">echo</span> <span class="nv">$cmd</span>
+    git add .;
+    git commit -a -m<span class="s2">"</span><span class="nv">$log</span><span class="s2">"</span>
+    git push;
+<span class="o">}</span>
+
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$# </span>-gt 0 <span class="o">]</span>
+<span class="k">do
+  case</span> <span class="nv">$1</span> <span class="k">in</span>
+    -commit <span class="p">|</span>-u<span class="p">)</span> <span class="nb">shift</span>; <span class="nv">log</span><span class="o">=</span><span class="nv">$1</span>; do_commit; <span class="nb">exit </span>0;;
+  <span class="k">esac
+  </span><span class="nb">shift
+</span><span class="k">done</span>
+</code></pre>
+</div>
+
+<h2 id="jekyll-输入表格">jekyll 输入表格</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Default aligned</th>
+      <th style="text-align: left">Left aligned</th>
+      <th style="text-align: center">Center aligned</th>
+      <th style="text-align: right">Right aligned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First body part</td>
+      <td style="text-align: left">Second cell</td>
+      <td style="text-align: center">Third cell</td>
+      <td style="text-align: right">fourth cell</td>
+    </tr>
+    <tr>
+      <td>Second line</td>
+      <td style="text-align: left">foo</td>
+      <td style="text-align: center"><strong>strong</strong></td>
+      <td style="text-align: right">baz</td>
+    </tr>
+    <tr>
+      <td>Third line</td>
+      <td style="text-align: left">quux</td>
+      <td style="text-align: center">baz</td>
+      <td style="text-align: right">bar</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Second body</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+    <tr>
+      <td>2 line</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Footer row</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tfoot>
+</table>
+
+<h2 id="markdown-原样抄写">markdown 原样抄写</h2>
+<p>在 Markdown 中，我们可以用 backtip ( ` ) 来做原样抄写（Verbatim）。也就是说，包含在两个 ` 中间的内容，会被 Markdown 原样保留下来。</p>
+
+<h2 id="markdown-插入数学公式">markdown 插入数学公式</h2>
+<h3 id="安装mathjax">安装mathjax</h3>
+<ol>
+  <li>
+    <p>首先通过<a href="https://cloud.github.com/downloads/timonwong/OmniMarkupPreviewer/mathjax.zip">mathjax.zip</a>下载mathjax,并将
+其他解压到<code class="highlighter-rouge">~/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/public</code>下</p>
+  </li>
+  <li>在<code class="highlighter-rouge">~/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/</code>创建空白文件<code class="highlighter-rouge">MATHJAX.DOWNLOADED</code></li>
+  <li>打开 Sublime Text -&gt; Preference -&gt; Package Setting -&gt; OmniMarkupPreviewer -&gt; Settings Default，找到下面一行将
+将false 改为true保存</li>
+</ol>
+
+<p><img src="/public/img/mathjax.png" alt="mathjax" title="修改配置文件" /></p>
+
+<p>在Markdown中插入数学公式的语法是 <code class="highlighter-rouge">$数学公式$</code> 和 <code class="highlighter-rouge">$$数学公式$$</code>。
+行内公式是可以让公式在文中与文字或其他东西混编，不独占一行。</p>
+
+<h2 id="jekyll中插入数学公式">jekyll中插入数学公式</h2>
+<h3 id="安装mathjax-1">安装mathjax</h3>
+<p>你需要将一段script加入到_layout/post.html 里面</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>// mathjax 
+&lt;script&gt;
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+&lt;/script&gt;
+</code></pre>
+</div>
+<h3 id="和在sublime中编写公式的不同之处">和在sublime中编写公式的不同之处</h3>
+<p>需要说明的是这里引发渲染的与markdown里面的略有区别：<code class="highlighter-rouge">$公式$</code>在这个里面是不能用的; <code class="highlighter-rouge">$$ 公式 $$</code> 在markdown里面是居中的公式，而在这里是Inline公式；这里的居中另起一行的是 <code class="highlighter-rouge">\\[ 公式 \\]</code>；也可以用 <code class="highlighter-rouge">\\( 公式 \\)</code>来实现Inline公式。</p>
+
+<h3 id="举例">举例</h3>
+
+<p>例1：
+质能方程 <script type="math/tex">E = mc^2</script></p>
+
+<p>例2：
+质能方程 \[E = mc^2\]</p>
+
+<p>例3:
+When \(a \ne 0\), there are two solutions to (\(ax^2 + bx + c = 0\)) and they are:
+\[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]</p>
+
+<p>例4：</p>
+
+<script type="math/tex; mode=display">a^2 + b^2 = c^2</script>
+
+<p>\( sin(x^2) \)</p>
+
+<script type="math/tex; mode=display">\mathsf{Data = PCs} \times \mathsf{Loadings}</script>
+
+<p>\(\bigcap\Delta\Gamma\Lambda\mathsf{\Delta\Gamma\Lambda}\)</p>
+
+<p>\(G_{ut}=(V\bigcup{T},E_{ut})\)</p>
+
+<p>\begin{equation}
+   E = mc^2
+\end{equation}</p>
+
+<p>\begin{equation}
+   e^{\pi i} + 1 = 0
+\end{equation}</p>
+
+<p><code class="highlighter-rouge">\[
+\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+\notag
+\]</code></p>
+
+<p><code class="highlighter-rouge">\[
+P(E)   = {n \choose k} p^k (1-p)^{ n-k}
+\tag{Eq-x}
+\]</code></p>
+
+<p>In equation \eqref{eq:sample}, we find the value of an
+interesting integral:</p>
+
+<p>\begin{equation}
+  \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+  \label{eq:sample}
+\end{equation}</p>
+
+<h2 id="jekyll-书写伪代码">jekyll 书写伪代码</h2>
+
+<div class="pseudo"><span class="indent">
+</span><span class="symbol">Function</span> <span class="function">swap</span><span class="op">(</span>old, new<span class="op">)</span>
+<span class="indent">
+  </span>remaining <span class="op">&larr;</span> quorumSize
+<span class="indent">  
+  </span>success <span class="op">&larr;</span> <span class="symbol">False</span>
+<span class="indent">  </span><span class="symbol">For</span> <span class="symbol">Each</span> host
+<span class="indent">    </span><span class="function">result</span><span class="op">&#65339;</span>host<span class="op">&#65341;</span> <span class="op">&larr;</span> <span class="function">send</span><span class="op">(</span>host, <span class="function">propose</span><span class="op">(</span>old, new<span class="op">)</span><span class="op">)</span>
+<span class="indent">    </span><span class="symbol">If</span> <span class="function">result</span><span class="op">&#65339;</span>host<span class="op">&#65341;</span> <span class="op">=</span> <span class="string">"ok"</span>
+<span class="indent">      </span>remaining<span class="op">--</span>
+<span class="indent">
+  </span><span class="symbol">If</span> remaining <span class="op">&#12297;</span> 1<span class="op">+</span>quorumSize/2
+<span class="indent">    </span>success <span class="op">&larr;</span> <span class="symbol">True</span>
+<span class="indent">
+  </span><span class="symbol">For</span> <span class="symbol">Each</span> result
+<span class="indent">    </span><span class="symbol">If</span> success
+<span class="indent">      </span><span class="function">send</span><span class="op">(</span>host, <span class="function">confirm</span><span class="op">(</span>old, new<span class="op">)</span><span class="op">)</span>
+<span class="indent">    </span><span class="symbol">Else</span>
+<span class="indent">      </span><span class="function">send</span><span class="op">(</span>host, <span class="function">cancel</span><span class="op">(</span>old, new<span class="op">)</span><span class="op">)</span>
+</div>
+
+<h2 id="jekyll-配置论文引用">jekyll 配置论文引用</h2>
+
+<p>@ARTICLE{boulet_etal_N2008,
+  author = {Boulet, R. and Jouve, B. and Rossi, F. and Villa, N.},
+  title = {Batch kernel {SOM} and related {L}aplacian methods for social network analysis},
+  journal = {Neurocomputing},
+  year = {2008},
+  volume = {71},
+  pages = {1257-1273},
+  number = {7-9},
+  doi = {doi:10.1016/j.neucom.2007.12.026},
+  keywords ={self-organizing maps, social network},
+  webnote = {Comments upon this article can be found on Nature web site.},
+  website = {http://www.elsevier.com/wps/find/journaldescription.cws_home/505628/description}
+}</p>
+
+<p>@CONFERENCE{rossi_etal_DD2011,
+  author = {Rossi, F. and Villa-Vialaneix, N. and Hautefeuille, F.},
+  title = {Exploration of a large database of French notarial acts with social network methods},
+  booktitle = {Digital Diplomatics 2011},
+  year = {2011},
+  address = {Napoli, Italy},
+  eventdate = {2011-09-29/2011-10-01},
+  keywords = {social network},
+  poster = {yes},
+  website = {http://www.cei.lmu.de/digdipl11/}
+}</p>
+
+<h2 id="9-参考资料">9. 参考资料</h2>
+<p><a href="http://frank19900731.github.io/blog/2015/04/13/zai-sublime-zhong-pei-zhi-markdown-huan-jing/#monokai-extended--markdown-extended">在 Sublime 中配置 Markdown 环境</a></p>
+
+<p><a href="http://jzqt.github.io/2015/06/30/Markdown%E4%B8%AD%E5%86%99%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">Markdown中写数学公式</a></p>
+
+<p><a href="http://blog.kamidox.com/write-math-formula-with-mathjax.html">使用 Markdown + MathJax 在博客里插入数学公式</a></p>
+
+<p><a href="http://brucezhaor.github.io/blog/2016/01/07/Mathjax-with-jekyll/">MathJax with Jekyll</a></p>
+
+<p><a href="http://wulfric.me/2014/09/jekyll-plugs/">Jekyll 博客的一些优化插件与配置</a></p>
+
+<p><a href="http://noyobo.com/2014/10/19/jekyll-kramdown-highlight.html">jekyll kramdown 语法高亮配置</a></p>
+
+<p><a href="http://waterbolik.github.io/jekyll/2015/10/14/MathJax%E8%AF%AD%E6%B3%95%E8%AF%A6%E8%A7%A3">MathJax语法详解</a></p>
+
+<p><a href="http://gastonsanchez.com/visually-enforced/opinion/2014/02/16/Mathjax-with-jekyll/">MathJax with Jekyll</a></p>
+
+<p><a href="https://www.zybuluo.com/yangfch3/note/267947">MathJax 总结</a></p>
+
+<p><a href="http://kyl.farbox.com/post/farbox/2016-03-30">使用MathJax插入带编号的数学公式并通过编号引用数学公式</a></p>
+
+<p><a href="http://baige5117.github.io/blog/mathjax_in_jekyll.html">利用 MathJax 在 Jekyll 网页中插入 Tex/LaTex 数学公式</a></p>
+
+<p><a href="http://www.rubydoc.info/gems/jekyll-pseudo/0.1.6">jekyll-pseudo</a></p>
+
+<p><a href="https://crispgm.com/page/48-tips-for-jekyll-you-should-know.html">48 个你需要知道的 Jekyll 使用技巧</a></p>
+
+<p><a href="http://zale.site/articles/2016/05/Academia-Writing-Using-Markdown-and-Pandoc.html">使用 Pandoc Markdown 进行学术论文写作</a></p>
+
+<p><a href="https://bl.ocks.org/Teino1978-Corp/325442fda3e3776f49e0">Jekyll Scholar - bibliographies &amp; citations.Jekyll-Scholar</a></p>
+
+<p><a href="http://tuxette.nathalievilla.org/?p=1426">Utiliser Jekyll avec LaTeX et BibTeXUse Jekyll with LaTeX and BibTeX</a></p>
+
+<p><a href="https://github.com/inukshuk/jekyll-scholar/">jekyll-scholar 官方文档</a></p>
+
+<p><a href="http://jeffjade.com/2016/03/26/2016-03-26-rakefile-for-jekyll/">Rake让Jekyll写博更优雅</a></p>
+
+<p><a href="http://blog.grayghostvisuals.com/workflow/deploying-jekyll-with-rake/">Deploying a Jekyll site with a Rakefile</a></p>
+
+<p><a href="http://mazhuang.org/2016/02/04/switch-to-kramdown-from-redcarpet/">将 GitHub Pages 从 Redcarpet 切换到 kramdown</a></p>
+
+<p><a href="http://gohom.win/2015/11/06/Kramdown-note/#ID1">kramdown和markdown较大的差异比较</a></p>
+
+<p><a href="https://github.com/jokinkuang/jokinkuang.github.io/blob/master/_posts/jekyll/2016-9-18-what-did-i-do-for-the-blog.md">Jekyll文章分类问题</a></p>
+
+<p><a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">Liquid</a></p>
+
+<p><a href="http://xiajian.github.io/rhg-zh/zh/liquid/">liquid模板语言</a></p>
+
+<p><a href="https://superdevresources.com/image-caption-jekyll/">Display Image caption in Posts on Jekyll blogs</a></p>
+
+
+    </div>
+    <hr>
+    <div id="disqus_thread">
+  <button type="button" name="58ideas" class="btn btn-default show-commend">	
+  	<i class="fa fa-comment-o fa-lg" style="color: #16a095;"></i>     <!-- 修改显示评论按钮图标-->
+  </button>
+</div>
+
+  </div>
+  <!-- 目录 -->
+  <div id="content_table" style="position:fixed;right:20px;top:120px;display:none;">
+    <div class="panel panel-success">
+      <div class="panel-body" id="nav"></div>
+    </div>
+  </div>
+</div>
+// 数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+        tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+     });
+  
+      MathJax.Hub.Queue(function() {
+          var all = MathJax.Hub.getAllJax(), i;
+         for(i=0; i < all.length; i += 1) {
+             all[i].SourceElement().parentNode.className += ' has-jax';
+         }
+     });
+</script> 
+//mathjax 
+<script>
+  (function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+// 开启数学公式编号
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+   TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:fixed;right:15px;top:62px;">
+  <button id="content_btn" class="btn btn-primary" style="width:43px; height:34px;">
+    <i class="fa fa-lg fa-plus"></i>
+  </button>
+</div>
+<div style="position:fixed;right:15px;top:20px;">
+  <button id="nav_btn" class="btn btn-primary">
+    <i class="fa fa-lg fa-navicon"></i>
+  </button>
+</div>
+<script type="text/javascript" src="/public/js/jquery.js"></script>
+<script type="text/javascript" src="/public/js/bootstrap.js"></script>
+<script src="/public/js/jquery.pjax.js"></script>
+<script src="/public/js/prettify/prettify.js"></script>
+<script src="/public/js/base.js"></script>
+<!--
+<script src="/public/js/jquery.scrollUp.js"></script>
+-->
+<script>
+    $('a[href="#技术"]').tab('show');
+</script>
+
+
+<!--button是右上方导航和显示目录的按钮-->
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-54262064-1', '58ideas.com');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>
