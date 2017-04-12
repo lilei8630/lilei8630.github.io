@@ -6,19 +6,10 @@
     <description>My personal blog</description>
     
       <item>
-        <title>git push中的-u参数是指什么？</title>
-        <link>http://localhost:4000/2017/04/10/git-push-u-parameter.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/10/git-push-u-parameter.html</guid>
-        <pubDate>Mon, 10 Apr 2017 17:04:21 +0800</pubDate>
-        <description>
-</description>
-      </item>
-    
-      <item>
         <title>大规模社交用户的标签自动生成技术研究</title>
-        <link>http://localhost:4000/2017/04/10/weibo_user_profile.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/04/10/weibo_user_profile.html</guid>
-        <pubDate>Mon, 10 Apr 2017 17:00:06 +0800</pubDate>
+        <link>http://localhost:4000/2017/04/12/weibo_user_profile.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/12/weibo_user_profile.html</guid>
+        <pubDate>Wed, 12 Apr 2017 16:13:39 +0800</pubDate>
         <description>&lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;/h2&gt;
 &lt;p&gt;社会标签(Social Tagging)作为一种新型网络信息组织方式,由网络信息的提供者或者用户自发为某类信息赋予一定数量的标签,
 选用自由词对感兴趣的网络信息资源进行描述来实现网络信息的分类,正在改变着传统的网络信息组织模式,
@@ -921,6 +912,202 @@ O_{um} = - \sum_{(i,j) \in E_{um}} \log p(v_i|m_j)
 
 &lt;h2 id=&quot;5-实验结果&quot;&gt;5. 实验结果&lt;/h2&gt;
 
+&lt;h3 id=&quot;51-微博数据集&quot;&gt;5.1 微博数据集&lt;/h3&gt;
+
+&lt;p&gt;本文通过新浪微博API抓取了2013/01/01至2013/12/31大概26.7亿条微博文本数据，主要包括如下字段：用户ID、发微博时间和微博博文；大概796万用户的关注关系数据；大概545万用户详细信息，具体包括以下具体信息：用户ID、昵称、性别、地址、一句话描述、标签、博客、生日、个人主页、初中、高中、大学、公司、血型、电子邮箱、QQ共16项信息。&lt;/p&gt;
+
+&lt;p&gt;图16为微博用户具体信息数据，共5455652条记录，其中标签字段不为NULL有3570902个用户，总标签数为18395390个，平均每个用户标签个数为5.15个。如下图中红圈标记的部分为每个用户的标签，我们利用用户ID和标签来构建用户标签网络。&lt;/p&gt;
+
+&lt;!-- _includes/image.html --&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//public/img/user-profile.png&quot; alt=&quot;user-profile&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;图16 微博用户具体信息&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;图17为微博用户关注关系数据，共计7960069条记录，其中每行为一条记录，第一项为微博用户id，第二项为该用户关注的其他用户id数组，我们以此构建用户关系网络。
+&lt;!-- _includes/image.html --&gt;&lt;/p&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//public/img/user-relation.png&quot; alt=&quot;user-relation&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;图17 微博用户关注关系&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;图18为微博用户博文数据样本，共2677073517条记录，这部分数据用于构造用户微博文本网络和用户转发关系网络。具体构建方法如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;用户微博文本网络: 首先对微博文本分词，然后按照用户标签网络中的标签集合来过滤分词后的文本，从而形成\((userId,Tag)\)的标签对，从而形成用户标签网络。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;用户转发关系网络: 根据微博文本中的&lt;code class=&quot;highlighter-rouge&quot;&gt;//@&lt;/code&gt;特征来提取转发用户的昵称，然后根据微博用户具体信息数据表查找该用户对应的用户ID,从而形成\((userId1,userId2)\)关系对，这些关系对构成了用户转发网络。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- _includes/image.html --&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//public/img/weibo-content.png&quot; alt=&quot;weibo-content&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;图18 微博用户博文数据样本&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;h3 id=&quot;52-评测指标选取&quot;&gt;5.2 评测指标选取&lt;/h3&gt;
+&lt;p&gt;本文的主要工作是从海量用户标签集合中找到最能描述某一用户的几个标签，这项工作类似于信息检索任务，评价这项工作的指标与信息检索评价指标类似。信息检索评价是对信息检索系统性能（主要满足用户信息需求的能力）进行评估的活动并能够根据用户提交的搜索结果，给出响应的MAP、MRR、P@5/10、S@1/5/10(这几个指标的含义将在下面进行详细解释)的结果。通过评估可以评价不同技术的优劣，不同因素对系统的影响，从而促进本领域研究水平的不断提高。信息检索系统的目标是在较少消耗情况下尽快、全面返回准确的结果。
+信息检索的评价指标，通常分为三个方面：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;效率(Efficiency)—可以采用通常的评价方法：时间开销、空间开销、响应速度。&lt;/li&gt;
+  &lt;li&gt;效果(Effectiveness)：返回的文档中有多少相关文档、所有相关文档中返回了多少、返回得靠不靠前。&lt;/li&gt;
+  &lt;li&gt;其他指标：覆盖率(Coverage)、访问量、数据更新速度。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;下面将说明信息检索中常用的评价指标：&lt;/p&gt;
+
+&lt;p&gt;1.&lt;strong&gt;Mean Average Precision(MAP)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\[
+AP = {1 \over \sum _ {i=1} ^N Precision(i)}
+\]&lt;/p&gt;
+
+&lt;p&gt;AP是Precision的一个变种，式子中的N表示标准答案的数目，而Precision(i)则是系统找到第i个答案时，包括第i个答案在内的前X个返回结果的Precision。例如一个query有2个标准答案，分别在第3位和第5位返回，则我们系统对于这个query的AP就是0.5*(1/3+2/5)=36.67%。AP对于各个用户查询进行平均，就是MAP（Mean Average Precision），这个指标可以用于对两类查询主题中任何一类的评测，但需要注意的是，与下面要提到的P@10，S@5等标准相比，它对于把标准答案排在尽可能前面的结果有较大的偏向：假设一个主题有两个标准答案，那排在1、2名的AP=100%，排在2、3名的AP=58.33%。&lt;/p&gt;
+
+&lt;p&gt;TREC中最常规的指标是MAP，它可以在每个召回率水平上提供单指标结果。在众多评价指标中，MAP被证明具有非常好的区别性（discrimination）和稳定性（stability)，所以本文
+选取的评价指标也为MAP。&lt;/p&gt;
+
+&lt;p&gt;2.&lt;strong&gt;Mean Reciprocal Rank (MRR)&lt;/strong&gt;
+\[
+RR = {1 \over Rank(1) }
+\]&lt;/p&gt;
+
+&lt;p&gt;RR是出现第一个标准答案的排序倒数。MRR则是各个用户查询对应的RR值进行平均的结果（Mean Average Precision），这个指标主要用于导航类检索的评测。值得注意的是，标准答案出现在前列的结果被给予一个很高的评价，把标准答案返回在第一位，则RR=100%，返回在第2位，则RR下降到50%。另外，当只有一个标准答案时，RR=AP。&lt;/p&gt;
+
+&lt;p&gt;3.&lt;strong&gt;Precision at 5/10 document&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;\[
+Rrecision@10 = Precision(10)
+\]
+与R-precision不同，这个评价指标是给定一个固定的数值X，衡量前X位结果的Precision。实际的应用背景就是看搜索引擎返回的的第一页结果有多高的Precision，它比较适用于信息事务类检索的评价。&lt;/p&gt;
+
+&lt;p&gt;4.&lt;strong&gt;Success at 1/5/10 document&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;前X篇结果中有没有我们要找的标准答案，X一般也就是搜索引擎返回第一页的结果数目，这个指标反映的是一个“全或无”的关系，对两类用户查询都适用。 总结一下，MAP/Success@10可以用于评价综合效果，P@10适合信息事务类查询，而MRR则可以用于导航类查询的评价。 结果收集与评价子系统收集各搜索引擎对于筛选出的查询主题的返回结果之后，按照上述方法进行评价，并将评价结果记录在“待评测搜索引擎结果表”与“性能评测结果记录表”中。每次评测会赋以不同的“评测记录编号”值，以进行历史评测信息的记录和维护。&lt;/p&gt;
+
+&lt;h3 id=&quot;53-实验设置&quot;&gt;5.3 实验设置&lt;/h3&gt;
+
+&lt;p&gt;本文需要先构建用户关注关系网络、用户转发网络、用户标签网络、用户微博文本网络，然后在此基础构建用户标签异构网络，这个网络整合了无标记网络(User-User Network、User-Forward Network)和有标记网络(User-Tag Network、User-Microblog Network),它包含不同维度的用户信息，包含有标记数据和无标记数据两部分，下面介绍这四个网络的构建方法。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;用户关注关系网络: 在现有微博数据中选取2013年全年发微博数量介于200至250条之间的，并且关注用户数量介于50至200之间微博用户，利用这些用户的关注关系数据构建用户
+关注关系网络，该网络共有6450638个顶点(微博用户)和15152494条边(关注关系)。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;用户标签网络: 针对用户关系网络的约645万用户，根据已经爬取到的微博详细信息数据，来判断每一个用户是否有标签信息，如果用户有标签数据，那么该用户及其标签数据将被纳入用户标签网路，经统计有1098250用户有标签，不同的标签个数为871763个，共有5799304条边。下面需要将带标签用户分为训练集和测试集：
+    &lt;ul&gt;
+      &lt;li&gt;测试集: 在上述1098250名有标签用户中，随机选则5万名用户作为测试集&lt;/li&gt;
+      &lt;li&gt;训练集: 在上述1098250名有标签用户中，除去测试集的5万名用户，剩余用户为训练集&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;用户转发网络: 对用户关系网络中的6450638个用户的微博博文按照&lt;code class=&quot;highlighter-rouge&quot;&gt;//@&lt;/code&gt;特征抽取转发微博的用户昵称，然后找到用户id，由于这样会引入其他用户，并且这些用户不存在用户关注关系网络中，所以我们
+对这部分用户按照用户关注关系网络中的用户进行过滤，最后形成含有10678239条边(关注关系)的用户转发网络，每个边的权重是该用户一年内转发另一用户微博的次数。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;用户微博文本网络: 对用户关系网络中的6450638个用户的微博博文进行分词，统计每个用户分词后每个词的词频，去除停用词后，按照用户标签过滤分词后，最后选取词频大于20并小于100，构造出微博文本网络，共有5608400条边。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;54-一阶段相似与二阶相似性对预测结果的影响&quot;&gt;5.4 一阶段相似与二阶相似性对预测结果的影响&lt;/h3&gt;
+
+&lt;p&gt;一阶相似和二阶相似分别是刻画的网络局部特征和全局特征，本实验通过控制生成用户和标签嵌入式表示的维数来研究具体影响，
+通过实验我们观察到一阶段相似更能反映网络的结构，在用户标签预测上结果更好。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;一阶表示维度&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;二阶表示维度&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;MAP@5(百分制)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.72724E-2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.06&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;20&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0.90&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;55-少量的标签被经常用来标注资源而大部分标签被使用的次数较少&quot;&gt;5.5 少量的标签被经常用来标注资源而大部分标签被使用的次数较少&lt;/h3&gt;
+
+&lt;p&gt;社会化标签系统中，标签的数量和使用频率之间遵循幂律分布，即只有少量的标签被经常用来标注资源而大部分标签被使用的次数较少，在试验中，我们统计了在用户标签网络中，每个标签使用的频率，通过实验可以看出通过提高标签使用频率的阈值，可以提高提升预测结果。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;标签阈值&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;标签个数&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;MAP@5(百分制)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;871763&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;70G&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;29103&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;70G&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;15561&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;70G&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;50&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;70G&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;20&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;70G&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;56&quot;&gt;5.6&lt;/h3&gt;
+
 &lt;h2 id=&quot;本文总结和对未来的工作展望&quot;&gt;本文总结和对未来的工作展望&lt;/h2&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
@@ -1044,6 +1231,15 @@ O_{um} = - \sum_{(i,j) \in E_{um}} \log p(v_i|m_j)
 
 
 &lt;/li&gt;&lt;/ul&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>git push中的-u参数是指什么？</title>
+        <link>http://localhost:4000/2017/04/10/git-push-u-parameter.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/04/10/git-push-u-parameter.html</guid>
+        <pubDate>Mon, 10 Apr 2017 17:04:21 +0800</pubDate>
+        <description>
 </description>
       </item>
     
